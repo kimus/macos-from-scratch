@@ -1,0 +1,90 @@
+# https://macos-defaults.com/#🙋-what-s-a-defaults-command
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+warn "closing any system preferences to prevent issues with automated changes"
+osascript -e 'tell application "System Preferences" to quit'
+
+warn "Please provide your password to apply configurations (if asked)!"
+
+# Enable firewall. Possible values:
+#   0 = off
+#   1 = on for specific sevices
+#   2 = on for essential services
+sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+
+# Enable firewall stealth mode (no response to ICMP / ping requests)
+# Source: https://support.apple.com/guide/mac-help/use-stealth-mode-to-keep-your-mac-more-secure-mh17133/mac
+#sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
+sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
+
+# Disable guest account login
+sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
+
+
+echo " - Setting up the computer label & name..."
+def_mac_os_label="$(scutil --get ComputerName)"
+prompt "What is this machine's label ($def_mac_os_label)?"
+mac_os_label="${REPLY:-$def_mac_os_label}"
+if [[ -z "$mac_os_label" ]]; then
+  echo "ERROR: Invalid MacOS label."
+  exit 1
+fi
+
+def_mac_os_name="$(scutil --get LocalHostName)"
+prompt "What is this machine's name ($def_mac_os_name)?"
+mac_os_name="${REPLY:-$def_mac_os_name}"
+if [[ -z "$mac_os_name" ]]; then
+  echo "ERROR: Invalid MacOS name."
+  exit 1
+fi
+
+echo " - Setting system Label and Name..."
+sudo scutil --set ComputerName "$mac_os_label"
+sudo scutil --set HostName "$mac_os_name"
+sudo scutil --set LocalHostName "$mac_os_name"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$mac_os_name"
+
+#echo " - Save to disk (not to iCloud) by default"
+#sudo defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+
+echo " - Disable the crash reporter"
+sudo defaults write com.apple.CrashReporter DialogType -string "none"
+
+#echo " - Set language and text formats (english/US)"
+#sudo defaults write NSGlobalDomain AppleLanguages -array "en"
+#sudo defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
+#sudo defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+#sudo defaults write NSGlobalDomain AppleMetricUnits -bool true
+
+echo " - Save screenshots to '~/Pictures/Screenshots'..."
+mkdir -p ${HOME}/Pictures/Screenshots 2> /dev/null
+sudo defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots"
+
+#echo " - Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)"
+#sudo defaults write com.apple.screencapture type -string "png"
+
+#echo " - Disable shadow in screenshots"
+#sudo defaults write com.apple.screencapture disable-shadow -bool true
+
+
+#echo " - Set the icon size of Dock items to 48 pixels"
+#sudo defaults write com.apple.dock tilesize -int 48
+
+#echo " - Remove the auto-hiding Dock delay"
+#sudo defaults write com.apple.dock autohide-delay -float 0
+
+#echo " - Remove the animation when hiding/showing the Dock"
+#sudo defaults write com.apple.dock autohide-time-modifier -float 0
+
+#echo " - Automatically hide and show the Dock"
+#sudo defaults write com.apple.dock autohide -bool true
+
+#echo " - Enable Safari’s debug menu"
+#sudo defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+#echo " - Enable the Develop menu and the Web Inspector in Safari"
+#sudo defaults write com.apple.Safari IncludeDevelopMenu -bool true
+#sudo defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+#sudo defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
