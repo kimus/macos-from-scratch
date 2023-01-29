@@ -42,6 +42,7 @@ cask "raycast"
 cask "spotify"
 cask "the-unarchiver"
 cask "slack"
+cask "fork"
 
 # 'mas install'
 #mas "GarageBand", id: 682658836

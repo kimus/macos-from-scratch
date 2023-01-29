@@ -43,12 +43,24 @@ This script will setup a banch of tools, applications and Configurations.
 
 ### Tools and Applications
 
+Applications (installed with Homebrew Cask):
+
+  - [Docker](https://www.docker.com/)
+  - [Google Chrome](https://www.google.com/chrome/)
+  - [Slack](https://slack.com/)
+  - [Visual Studio Code](https://code.visualstudio.com/)
+  - [Fork](https://fork.dev/)
+  - [iTerm2](https://iterm2.com/)
+  - [Oh My Zsh](https://ohmyz.sh)
+  - [Obsidian](https://obsidian.md/)
+
 Check `Brewfile`for the full list of tools and applications.
 
 
 ### Visual Studion Code Extensions
 
 Check `vscodefile` for the full list of Visual Studio Code extensions.
+
 
 ### MacOS System Preferences
 
