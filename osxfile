@@ -1,5 +1,3 @@
-# https://macos-defaults.com/#🙋-what-s-a-defaults-command
-
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 warn "closing any system preferences to prevent issues with automated changes"

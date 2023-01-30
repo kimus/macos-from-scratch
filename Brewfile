@@ -23,6 +23,7 @@ brew "chezmoi"
 brew "grep"
 brew "openssh"
 brew "jq"
+brew "bitwarden-cli"
 
 # 'brew install --cask'
 # 'brew install --cask --appdir=~/my-apps/Applications'
@@ -43,6 +44,7 @@ cask "spotify"
 cask "the-unarchiver"
 cask "slack"
 cask "fork"
+cask "bitwarden"
 
 # 'mas install'
 #mas "GarageBand", id: 682658836

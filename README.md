@@ -57,7 +57,7 @@ Applications (installed with Homebrew Cask):
 Check `Brewfile`for the full list of tools and applications.
 
 
-### Visual Studion Code Extensions
+### Visual Studio Code Extensions
 
 Check `vscodefile` for the full list of Visual Studio Code extensions.
 
@@ -75,6 +75,5 @@ Finally, the [dotfiles](https://github.com/kimus/dotfiles) are also installed in
 
 ## Usefull Links
 
-- https://github.com/atomantic/dotfiles
-- https://gist.github.com/MohammedEsafi/81953d7901a8ec6c08cfb77d68de6a7a
-- https://mattstauffer.com/blog/series/setting-up-a-new-os-x-development-machine/
+- https://dotfiles.github.io/inspiration/
+- https://macos-defaults.com/#🙋-what-s-a-defaults-command

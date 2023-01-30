@@ -57,14 +57,23 @@ warn "Restoring 'Develop' from backup is not implemented yet!"
 
 
 echo ''
-info "Installing dotfiles (Chezmoi)..."
-if [ -d ~/.local/share/chezmoi ]; then
-  warn "Chezmoi already initialized! Nothing to be done."
+info "Please provide your Bitwarden credentials..."
+local session=$(bw login --raw)
+if [ x"$session" != x"" ]; then
+  export BW_SESSION="$session"
+  echo ''
+  info "Installing dotfiles (Chezmoi)..."
+  if [ -d ~/.local/share/chezmoi ]; then
+    warn "Chezmoi already initialized! Nothing to be done."
+  else
+    execute "Initializing dotfiles with chezmoui..."
+    chezmoi init --apply "${GITHUB_USERNAME:-$USER}"
+  fi
+  success "dotfiles ready!"
 else
-  execute "Initializing dotfiles with chezmoui..."
-  chezmoi init --apply "${GITHUB_USERNAME:-$USER}"
+  warn "Something went wrong setting up Bitwarden!"
+  fail "dotfiles not set!"
 fi
-success "Chezmoi ready!"
 
 
 echo ''
