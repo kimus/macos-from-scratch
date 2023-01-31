@@ -21,7 +21,6 @@ tap "homebrew/core"
 brew "mas"
 brew "chezmoi"
 brew "grep"
-brew "openssh"
 brew "jq"
 brew "bitwarden-cli"
 
@@ -45,6 +44,7 @@ cask "the-unarchiver"
 cask "slack"
 cask "fork"
 cask "bitwarden"
+cask "buttercup"
 
 # 'mas install'
 #mas "GarageBand", id: 682658836
