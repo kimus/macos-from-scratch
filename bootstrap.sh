@@ -58,7 +58,7 @@ warn "Restoring 'Develop' from backup is not implemented yet!"
 
 echo ''
 info "Please provide your Bitwarden credentials..."
-local session=$(bw login --raw)
+session=$(bw login --raw)
 if [ x"$session" != x"" ]; then
   export BW_SESSION="$session"
   echo ''
@@ -69,6 +69,10 @@ if [ x"$session" != x"" ]; then
     execute "Initializing dotfiles with chezmoui..."
     chezmoi init --apply "${GITHUB_USERNAME:-$USER}"
   fi
+
+  execute "Adding SSH keys..."
+  ssh-add
+  
   success "dotfiles ready!"
 else
   warn "Something went wrong setting up Bitwarden!"

@@ -9,6 +9,7 @@
 
 tap "homebrew/core"
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 
 ##
 # options
@@ -34,6 +35,10 @@ brew "chezmoi"
 brew "grep"
 brew "jq"
 brew "bitwarden-cli"
+brew "node"
+brew "nvm"
+brew "kubernetes-cli"
+brew "terraform"
 
 ##
 # 'brew install --cask'
@@ -52,6 +57,7 @@ brew "bitwarden-cli"
 
 cask "iterm2"
 cask "google-chrome"
+cask "google-chrome-dev"
 cask "obsidian"
 cask "visual-studio-code"
 cask "docker"
@@ -63,6 +69,11 @@ cask "fork"
 cask "bitwarden"
 cask "buttercup"
 cask "whatsapp"
+cask "microsoft-teams"
+cask "syncthing"
+cask "mongodb-compass"
+cask "ganttproject"
+cask "insomnia"
 
 ##
 # 'mas install'
