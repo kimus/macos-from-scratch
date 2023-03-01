@@ -76,6 +76,7 @@ cask "syncthing"
 cask "mongodb-compass"
 cask "ganttproject"
 cask "insomnia"
+cask "cyberduck"
 
 ##
 # 'mas install'
