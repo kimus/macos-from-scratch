@@ -38,7 +38,9 @@ brew "bitwarden-cli"
 brew "node"
 brew "nvm"
 brew "kubernetes-cli"
+brew "kubie"
 brew "terraform"
+brew "restic"
 
 ##
 # 'brew install --cask'
@@ -81,3 +83,5 @@ cask "insomnia"
 # mas "GarageBand", id: 682658836
 # mas "iMovie", id: 408981434
 # mas "WhatsApp", id: 1147396723
+
+mas "Magnet", id: 441258766
