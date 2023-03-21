@@ -41,6 +41,9 @@ brew "kubernetes-cli"
 brew "kubie"
 brew "terraform"
 brew "restic"
+brew "httpie"
+brew "gh"
+brew "tree"
 
 ##
 # 'brew install --cask'
@@ -77,6 +80,10 @@ cask "mongodb-compass"
 cask "ganttproject"
 cask "insomnia"
 cask "cyberduck"
+cask "tableplus"
+cask "lunacy"
+cask "ngrok"
+cask "obs"
 
 ##
 # 'mas install'
